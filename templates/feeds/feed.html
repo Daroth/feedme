@@ -1,0 +1,21 @@
+{% extends 'feeds/base.html' %}
+
+{% block body %}
+    {% include "feeds/menu.html" %}
+    <div id="content">
+        {% if feed.favicon %}
+            <h2><img src="{{ feed.favicon }}"/> {{ feed.title }}</h2>
+        {% else %}
+            <h2>{{ feed.title }}</h2>
+        {% endif %}
+        {{ feed.description }}
+        {% for post in feed.post_set.all %}
+            <hr>
+            <a href="{{ post.link }}" target="_blank"><h3>- {{ post.title }}</h3></a>
+            <div class="block">
+                {{ post.summary|safe }}
+            </div>
+        {% endfor %}
+        <hr>
+    </div>
+{% endblock %}
