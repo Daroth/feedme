@@ -1,12 +1,11 @@
-##########################################
-# Django settings for feedme project #
-##########################################
+# Django settings for feedme project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    #('user', 'user@mail.com'),
+    # ('Your Name', 'your_email@domain.com'),
 )
 
 MANAGERS = ADMINS
@@ -14,20 +13,28 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite',
+        'NAME': 'feedme.db',
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
         'PORT': '',
     }
 }
-CACHE_BACKEND = 'memcached://127.0.0.1:11211'
 
-# Local time zone for this installation.
-TIME_ZONE = 'Europe/Paris'
+PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__))
 
-# Language code for this installation.
-LANGUAGE_CODE = 'fr'
+# Local time zone for this installation. Choices can be found here:
+# http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
+# although not all choices may be available on all operating systems.
+# On Unix systems, a value of None will cause Django to use the same
+# timezone as the operating system.
+# If running in a Windows environment this must be set to the same as your
+# system time zone.
+TIME_ZONE = 'America/Chicago'
+
+# Language code for this installation. All choices can be found here:
+# http://www.i18nguy.com/unicode/language-identifiers.html
+LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
 
@@ -39,9 +46,9 @@ USE_I18N = False
 # calendars according to the current locale
 USE_L10N = True
 
-# Absolute path to the directory that holds media.
+# Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = '/home/mattoufoutu/Documents/Projects/feedme/src/feedme/static'
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -51,10 +58,10 @@ MEDIA_URL = ''
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/media/'
+ADMIN_MEDIA_PREFIX = '/static/admin'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '^dmrp#a=osnu9-nwm1(mq56sqzsigzd1=35bx-0v@rpa_^orwh'
+SECRET_KEY = 'he_82b+(8qv%4jgnuhz170pl$5ttq$_k&2$p08q$#8udoe@f!7'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -73,7 +80,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'feedme.urls'
 
 TEMPLATE_DIRS = (
-    '/home/mattoufoutu/Documents/Projects/feedme/src/feedme/templates',
+    os.path.join(PROJECT_ROOT, 'templates'),
 )
 
 INSTALLED_APPS = (
@@ -83,37 +90,4 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.admin',
-
-    'feeds',
 )
-
-
-##########################
-# DEBUG TOOLBAR SETTINGS #
-##########################
-
-#MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
-#INSTALLED_APPS += ('debug_toolbar',)
-#DEBUG_TOOLBAR_PANELS = (
-#    'debug_toolbar.panels.version.VersionDebugPanel',
-#    'debug_toolbar.panels.timer.TimerDebugPanel',
-#    'debug_toolbar.panels.cache.CacheDebugPanel',
-#    'debug_toolbar.panels.settings_vars.SettingsVarsDebugPanel',
-#    'debug_toolbar.panels.headers.HeaderDebugPanel',
-#    'debug_toolbar.panels.request_vars.RequestVarsDebugPanel',
-#    'debug_toolbar.panels.template.TemplateDebugPanel',
-#    'debug_toolbar.panels.sql.SQLDebugPanel',
-#    'debug_toolbar.panels.signals.SignalDebugPanel',
-#    'debug_toolbar.panels.logger.LoggingPanel',
-#)
-#DEBUG_TOOLBAR_CONFIG = {
-#    'INTERCEPT_REDIRECTS': False,
-#    'SHOW_TOOLBAR_CALLBACKS': None,
-#    'EXTRA_SIGNALS': [],
-#    'HIDE_DJANGO_SQL': True,
-#    'SHOW_TEMPLATE_CONTEXT': True,
-#    'TAG': 'body',
-#}
-#INTERNAL_IPS = (
-#    '127.0.0.1',
-#)
