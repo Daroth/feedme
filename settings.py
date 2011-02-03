@@ -54,7 +54,7 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/static/'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -82,6 +82,11 @@ ROOT_URLCONF = 'feedme.urls'
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'templates'),
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'lib.context_processors.debug_status',
+    'lib.context_processors.static_files',
 )
 
 INSTALLED_APPS = (
