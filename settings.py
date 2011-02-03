@@ -3,7 +3,7 @@ import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-USE_DEBUG_TOOLBAR = True
+USE_DEBUG_TOOLBAR = False
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
@@ -85,6 +85,7 @@ TEMPLATE_DIRS = (
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
     'lib.context_processors.debug_status',
     'lib.context_processors.static_files',
 )

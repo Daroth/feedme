@@ -3,21 +3,27 @@
 {% block head %}
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" media="screen, projection"
-          href="/static/css/blueprint/screen.css" />
+          href="{{ CSS }}/blueprint/screen.css" />
     <link rel="stylesheet" type="text/css" media="print"
-          href="/static/css/blueprint/print.css" />
+          href="{{ CSS }}/blueprint/print.css" />
     <!--[if IE]>
     <link rel="stylesheet" type="text/css" media="screen, projection"
-          href="/static/css/blueprint/ie.css" />
+          href="{{ CSS }}/blueprint/ie.css" />
     <![endif]-->
     <link rel="stylesheet" type="text/css"
-          href="/static/css/ui-lightness/jquery-ui-1.8.9.custom.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/base.css" />
+          href="{{ CSS }}/ui-lightness/jquery-ui-1.8.9.custom.css" />
+    <link rel="stylesheet" type="text/css" href="{{ CSS }}/base.css" />
     {% block css %}{% endblock css %}
+
+    <link rel="stylesheet" type="text/css" media="screen"
+          href="{{ CSS }}/blueprint/plugins/buttons/screen.css" />
     <!-- JavaScript -->
     <script type="text/javascript"
-            src="/static/js/jquery-1.5.min.js"></script>
+            src="{{ JS }}/jquery-1.5.min.js"></script>
     <script type="text/javascript"
-            src="/static/js/jquery-ui-1.8.9.custom.min.js"></script>
+            src="{{ JS }}/jquery-ui-1.8.9.custom.min.js"></script>
+    {% if DEBUG %}
+        <script type="text/javascript" src="{{ JS }}/togglegrid.js"></script>
+    {% endif %}
     {% block js %}{% endblock js %}
 {% endblock head %}
