@@ -91,6 +91,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.admin',
+
+    'apps.feeds',
 )
 
 # use django-extensions and django-debug-toolbar
