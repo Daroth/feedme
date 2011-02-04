@@ -15,31 +15,25 @@ import feedparser
 @render_to('feeds/index.html')
 def index(request):
     feeds = Feed.objects.all()
-    sections = Section.objects.all()
     return {
         'feeds': feeds,
-        'sections': sections,
     }
 
 @render_to('feeds/section.html')
 def section(request, section_id):
     section = get_object_or_404(Section, pk=section_id)
     feeds = Feed.objects.filter(section=section_id)
-    sections = Section.objects.all()
     return {
         'section': section,
         'feeds': feeds,
-        'sections': sections,
     }
 
 @render_to('feeds/feed.html')
 def feed(request, feed_id):
     feed = get_object_or_404(Feed, pk=feed_id)
     feeds = Feed.objects.all()
-    sections = Section.objects.all()
     return {
         'feeds': feeds,
-        'sections': sections,
     }
 
 def mark_as_read(request):

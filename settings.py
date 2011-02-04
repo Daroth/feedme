@@ -88,6 +88,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'lib.context_processors.debug_status',
     'lib.context_processors.static_files',
+    'lib.context_processors.sections_list',
 )
 
 INSTALLED_APPS = (
