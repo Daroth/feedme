@@ -9,15 +9,15 @@ class Section(models.Model):
 
 
 class Feed(models.Model):
+    title = models.CharField(unique=True, max_length=50)
+    description = models.CharField(max_length=150, blank=True, null=True)
     url = models.URLField(unique=True)
     favicon = models.URLField(blank=True)
     last_update = models.DateTimeField(auto_now=True)
-    title = models.CharField(unique=True, max_length=50)
-    description = models.CharField(max_length=150, blank=True, null=True)
     section = models.ForeignKey(Section)
 
     def __unicode__(self):
-        return self.url
+        return self.title
 
 
 class Post(models.Model):
