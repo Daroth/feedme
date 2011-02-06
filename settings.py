@@ -101,7 +101,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 INSTALLED_APPS = (
-    #'admin_tools',
     'admin_tools.theming',
     'admin_tools.menu',
     'admin_tools.dashboard',
