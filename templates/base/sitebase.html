@@ -27,3 +27,10 @@
     {% endif %}
     {% block js %}{% endblock js %}
 {% endblock head %}
+
+{% block body %}
+    <div class="container">
+    {% include "base/menu.html" %}
+    {% block content %}{% endblock %}
+    </div>
+{% endblock body %}

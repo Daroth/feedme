@@ -22,18 +22,15 @@ def index(request):
 @render_to('feeds/section.html')
 def section(request, section_id):
     section = get_object_or_404(Section, pk=section_id)
-    feeds = Feed.objects.filter(section=section_id)
     return {
         'section': section,
-        'feeds': feeds,
     }
 
 @render_to('feeds/feed.html')
 def feed(request, feed_id):
     feed = get_object_or_404(Feed, pk=feed_id)
-    feeds = Feed.objects.all()
     return {
-        'feeds': feeds,
+        'feed': feed,
     }
 
 def mark_as_read(request):
