@@ -1,0 +1,27 @@
+{% comment %}
+
+Expected context:
+    - feed (the Feed object to display posts from)
+
+{% endcomment %}
+
+<script type="text/javascript" src="/static/js/posts_list.js"></script>
+
+{% if feed %}
+    {% for post in feed.post_set.all %}
+        <div id="post{{ post.id }}"{% if post.is_read %} class="is_read"{% endif %}>
+            <hr>
+            <a href="{{ post.link }}" target="_blank">- {{ post.title }}</a>
+            {% if not post.is_read %}
+
+                <a href="#" class="button" id="{{ post.id }}" onclick="hidePost({{ post.id }})">
+                    <span>Mark as read</span>
+                </a><br />
+
+            {% endif %}
+            <div class="block">
+                {{ post.summary|safe }}
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}

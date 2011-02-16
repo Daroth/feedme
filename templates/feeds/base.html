@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ LANGUAGE_CODE }}" xml:lang="{{ LANGUAGE_CODE }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+
+<head>
+    <script type="text/javascript" src="/static/js/jquery-1.4.2.min.js"></script>
+    {% block extrascript %}{% endblock %}
+    <link rel="stylesheet" type="text/css" href="/static/base.css" />
+    <title>
+        {% block sitetitle %}FeedMe{% endblock %} - {% block pagedesc %}The Django powered feeds agregator{% endblock %}
+    </title>
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+    {% block body %}{% endblock %}
+</body>
+
+</html>
