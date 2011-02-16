@@ -2,9 +2,35 @@
 
 {% block head %}
     <!-- CSS -->
+    <link rel="stylesheet" type="text/css" media="screen, projection"
+          href="{{ CSS }}/blueprint/screen.css" />
+    <link rel="stylesheet" type="text/css" media="print"
+          href="{{ CSS }}/blueprint/print.css" />
+    <!--[if IE]>
+    <link rel="stylesheet" type="text/css" media="screen, projection"
+          href="{{ CSS }}/blueprint/ie.css" />
+    <![endif]-->
+    <link rel="stylesheet" type="text/css"
+          href="{{ CSS }}/ui-lightness/jquery-ui-1.8.9.custom.css" />
+    <link rel="stylesheet" type="text/css" href="{{ CSS }}/base.css" />
     {% block css %}{% endblock css %}
-    <!-- -->
+
+    <link rel="stylesheet" type="text/css" media="screen"
+          href="{{ CSS }}/blueprint/plugins/buttons/screen.css" />
     <!-- JavaScript -->
+    <script type="text/javascript"
+            src="{{ JS }}/jquery-1.5.min.js"></script>
+    <script type="text/javascript"
+            src="{{ JS }}/jquery-ui-1.8.9.custom.min.js"></script>
+    {% if debug %}
+        <script type="text/javascript" src="{{ JS }}/togglegrid.js"></script>
+    {% endif %}
     {% block js %}{% endblock js %}
-    <!-- -->
 {% endblock head %}
+
+{% block body %}
+    <div class="container">
+    {% include "base/menu.html" %}
+    {% block content %}{% endblock %}
+    </div>
+{% endblock body %}

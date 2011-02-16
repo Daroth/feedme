@@ -1,0 +1,16 @@
+<div class="menur">
+    <ul class="menu">
+        {% for section in SECTIONS %}
+            <li class="menuentry">
+                <a href="#" class="menulink">{{ section.name }}</a>
+            </li>
+            <ul class="submenu">
+                {% for feed in section.feed_set.all %}
+                    <li class="menuentry">
+                        <a href="#" class="menulink">{{ feed.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </ul>
+</div>

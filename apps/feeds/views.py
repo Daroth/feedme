@@ -2,9 +2,13 @@ from django.db import IntegrityError
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 
+
 from lib.helpers import render_to
 from apps.feeds.forms import MarkAsRead
 from apps.feeds.models import Section, Feed, Post
+
+from apps.feeds.forms import MarkAsRead
+from apps.feeds.models import Feed, Post
 
 from datetime import datetime
 from time import mktime
@@ -60,7 +64,10 @@ def update_all(request):
             feed.save()
         for entry in parsed.entries:
             try:
-                pubdate = datetime.fromtimestamp(mktime(entry.updated_parsed))
+                if hasattr(entry, 'updated_parsed'):
+                    pubdate = datetime.fromtimestamp(mktime(entry.updated_parsed))
+                else:
+                    pubdate = None
                 post = Post(
                     feed=feed,
                     link=entry.link,

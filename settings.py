@@ -86,12 +86,26 @@ TEMPLATE_DIRS = (
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
+    # default context processors
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+
+    # required by django-admin-tools
+    'django.core.context_processors.request',
+
+    # custom context processors
     'lib.context_processors.debug_status',
     'lib.context_processors.static_files',
-    'django.contrib.auth.context_processors.auth',
+    'lib.context_processors.sections_list',
 )
 
 INSTALLED_APPS = (
+    'admin_tools.theming',
+    'admin_tools.menu',
+    'admin_tools.dashboard',
+
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
