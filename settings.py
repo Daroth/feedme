@@ -1,6 +1,7 @@
 # Django settings for feedme project.
 import os
 
+ROOT_PATH = os.path.dirname(os.path.abspath(__name__))
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 USE_DEBUG_TOOLBAR = True
@@ -14,7 +15,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'feedme.db',
+        'NAME': '%s/db/feedme.db' % (ROOT_PATH),
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
@@ -87,6 +88,7 @@ TEMPLATE_DIRS = (
 TEMPLATE_CONTEXT_PROCESSORS = (
     'lib.context_processors.debug_status',
     'lib.context_processors.static_files',
+    'django.contrib.auth.context_processors.auth',
 )
 
 INSTALLED_APPS = (
